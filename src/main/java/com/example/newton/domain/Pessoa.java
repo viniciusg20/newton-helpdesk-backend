@@ -1,21 +1,45 @@
 package com.example.newton.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.example.newton.domain.enums.Perfil;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public abstract class Pessoa {
+import com.example.newton.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity//propriedade javax.persistence
+public abstract class Pessoa implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//determinando aqui que o ID será chave primária definida automaticamente pelo BANCO
 	protected Integer id;
 	protected String nome;
+	
+	@Column(unique = true)
 	protected String cpf;
+	
+	@Column(unique = true)
 	protected String email;
 	protected String senha;
+	
+	@ElementCollection(fetch = FetchType.EAGER)//assegurando que a lista de perfils virá junto com o usuário
+	@CollectionTable(name = "PERFILS")
 	protected Set<Integer> perfils = new HashSet<>();
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
 	
 	public Pessoa() {
