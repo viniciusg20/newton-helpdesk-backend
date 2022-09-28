@@ -2,7 +2,7 @@ package com.example.newton.domain.enums;
 
 public enum Prioridade {
 
-	BAIXA(0, "BAIXA"), MEDIA(1, "MEDIA"), ENCERRADO(2, "ALTA");
+	BAIXA(0, "BAIXA"), MEDIA(1, "MEDIA"), ALTA(2, "ALTA");
 
 	private Integer codigo;
 	private String descricao;
