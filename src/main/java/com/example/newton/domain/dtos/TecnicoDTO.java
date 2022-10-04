@@ -15,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.example.newton.domain.Tecnico;
 import com.example.newton.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -28,6 +30,7 @@ public class TecnicoDTO implements Serializable{
 	@NotNull(message = "O campo NOME é requerido!")
 	protected String nome;
 	
+	@CPF
 	@Column(unique = true)
 	@NotNull(message = "O campo CPF é requerido!")
 	protected String cpf;
