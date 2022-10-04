@@ -13,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import com.example.newton.domain.Tecnico;
 import com.example.newton.domain.enums.Perfil;
@@ -24,13 +25,17 @@ public class TecnicoDTO implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//determinando aqui que o ID será chave primária definida automaticamente pelo BANCO
 	protected Integer id;
+	@NotNull(message = "O campo NOME é requerido!")
 	protected String nome;
 	
 	@Column(unique = true)
+	@NotNull(message = "O campo CPF é requerido!")
 	protected String cpf;
 	
 	@Column(unique = true)
+	@NotNull(message = "O campo EMAIL é requerido!")
 	protected String email;
+	@NotNull(message = "O campo SENHA é requerido!")
 	protected String senha;
 	
 	@ElementCollection(fetch = FetchType.EAGER)//assegurando que a lista de perfils virá junto com o usuário
