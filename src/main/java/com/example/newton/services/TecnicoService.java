@@ -34,7 +34,7 @@ public class TecnicoService {
 		return repository.findAll();
 	}
 
-	public Tecnico create(TecnicoDTO objDTO) {
+	public Tecnico create(@Valid TecnicoDTO objDTO) {
 		objDTO.setId(null);
 		validaPorCpfEmail(objDTO);
 		Tecnico newObj = new Tecnico(objDTO);
