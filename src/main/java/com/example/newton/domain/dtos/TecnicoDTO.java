@@ -21,7 +21,7 @@ import com.example.newton.domain.Tecnico;
 import com.example.newton.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class TecnicoDTO implements Serializable{
+public class TecnicoDTO implements Serializable{//Serializable para tráfico em rede
 	private static final long serialVersionUID = 1L;
 	
 	@Id

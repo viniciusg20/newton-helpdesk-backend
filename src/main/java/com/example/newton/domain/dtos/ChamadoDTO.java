@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import com.example.newton.domain.Chamado;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class ChamadoDTO implements Serializable {
+public class ChamadoDTO implements Serializable { //Serializable para tráfico em rede
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
